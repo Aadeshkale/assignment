@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer DashBoard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+
+</head>
+<body>
+<div class="container mt-3">
+    <div class="">
+        <h1 class="text-success">{{ user }} dashboard</h1>
+        <button class="btn btn-danger float-right mb-2">
+            <a class="text-white" href="logout">Logout</a>
+        </button>
+    </div>
+    <div class="">
+
+
+            {% if tasks %}
+
+              <table class="table">
+              <thead>
+                    <tr>
+                      <th scope="col">Task Details</th>
+                      <th scope="col">Manager Commit</th>
+                      <th scope="col">Developer Commit</th>
+                      <th scope="col">Task Status</th>
+                      <th scope="col">Edit</th>
+                    </tr>
+              </thead>
+              <tbody>
+
+
+            {% for i in tasks %}
+                <tr>
+                    <td>
+                        {{ i.task_details }}
+                    </td>
+                    <td>
+                        {{ i.manager_commit }}
+                    </td>
+                        <td>
+                        {{ i.user_commit }}
+                    </td>
+                    <td>
+                        {{ i.status }}
+                    </td>
+                    <td>
+                        <a href="dashboard/{{ i.id }}" class="btn btn-warning">Edit</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+              </tbody>
+            </table>
+            {% else %}
+                      <h1 class="text-success">There is no tasks for {{ user }}</h1>
+            {% endif %}
+
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

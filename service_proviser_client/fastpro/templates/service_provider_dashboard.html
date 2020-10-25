@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Provider Dashboard</title>
+</head>
+<body>
+
+    <p>Hello {{ user }}</p>
+    <a href="service_provider_logout">
+        <button>Logout</button>
+    </a>
+    <form method="post">
+            {% csrf_token %}
+            <label for="ser_name">Service Name:</label>
+            <input type="text" name="ser_name">
+            <label for="ser_dis">Service Discription:</label>
+            <input type="text" name="ser_dis">
+            <label>contact_email:</label>
+            <input type="email" name="contact_email">
+            <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>

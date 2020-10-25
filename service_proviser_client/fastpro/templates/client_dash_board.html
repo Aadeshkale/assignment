@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Dashboard</title>
+    <style>
+        table {
+              border-collapse: collapse;
+
+            }
+            table, td, th {
+                border: 1px solid black;
+                margin: 5px;
+            }
+    </style>
+</head>
+<body>
+    <p>Hello {{ user }} </p>
+
+    <a href="../client_logout">
+        <button>Logout</button>
+    </a>
+
+
+    {% if services %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>service_name</td>
+                <td>service_discription</td>
+                <td>contact_email</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in services %}
+
+            <tr>
+                <td>{{ i.service_name }}</td>
+                <td>{{ i.service_discription }}</td>
+                <td>
+                    <a href="mailto:{{i.contact_email}}">
+                        Send Mail
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+
+    </table>
+
+    {% else %}
+        <p>There are no services</p>
+
+    {% endif %}
+
+
+</body>
+</html>

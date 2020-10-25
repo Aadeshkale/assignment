@@ -1,0 +1,11 @@
+superuser login
+admin
+admin
+
+service_provider
+sachin
+user@123
+
+client
+kunal
+user@123
